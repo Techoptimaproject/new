@@ -1,0 +1,15 @@
+[
+    {
+      "label": "Home",
+      "url": "/"
+    },
+    {
+      "label": "Dashboard",
+      "url": "/dashboard"
+    },
+    {
+      "label": "inbox",
+      "url": "/inbox"
+    }
+  ]
+  

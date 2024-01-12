@@ -1,0 +1,393 @@
+
+<div class="ms-2">
+  <div class="row">
+      <div class="col-2 ">
+        <div class="sidenav">
+          <div class="logo-container">
+      
+            <span class="containerlogo">
+              <img src="../assets/fhlogo.png" alt="Company Logo" />
+            </span>
+      
+            <span class="containericon" (click)="hidesidenav()">
+              <svg xmlns="http://www.w3.org/2000/svg"width="24" style="margin-top: 10px; " height="24" viewBox="0 0 24 24"
+                fill="none">
+                <path d="M3 18V16H21V18H3ZM3 13V11H21V13H3ZM3 8V6H21V8H3Z" fill="#303778" />
+              </svg>
+            </span>
+      
+          </div>
+      
+      
+          <hr class="line">
+          <mat-sidenav *ngIf="sidenavcol">
+      
+      
+            <button  class="btn btn-light  menu-button" routerLink="/dashboard" [routerLinkActiveOptions]="{ exact: true }"
+              #dashboardRoute="routerLinkActive" routerLinkActive="active"
+              [class.active]="dashboardRoute.isActive ? 'active' : ''">
+      
+              <mat-icon>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 24" fill="none">
+                  <path
+                    d="M13 9.00003V3.00003H21V9.00003H13ZM3 13V3.00003H11V13H3ZM13 21V11H21V21H13ZM3 21V15H11V21H3ZM5 11H9V5.00003H5V11ZM15 19H19V13H15V19ZM15 7.00003H19V5.00003H15V7.00003ZM5 19H9V17H5V19Z"
+                    fill="#303778" />
+                </svg>
+              </mat-icon>
+              <span class="mattitle">Dashboard</span>
+              </button>
+      
+            <button  class="btn btn-light  menu-button"  (click)="hidenav()" routerLink="/setup" #setupRoute="routerLinkActive" routerLinkActive="active"
+              [class]="setupRoute.isActive ? 'active-link' : ''">
+              <mat-icon><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M5.85 17.1C6.7 16.45 7.65 15.9375 8.7 15.5625C9.75 15.1875 10.85 15 12 15C13.15 15 14.25 15.1875 15.3 15.5625C16.35 15.9375 17.3 16.45 18.15 17.1C18.7333 16.4167 19.1875 15.6417 19.5125 14.775C19.8375 13.9084 20 12.9834 20 12C20 9.78336 19.2208 7.89586 17.6625 6.33753C16.1042 4.7792 14.2167 4.00003 12 4.00003C9.78333 4.00003 7.89583 4.7792 6.3375 6.33753C4.77917 7.89586 4 9.78336 4 12C4 12.9834 4.1625 13.9084 4.4875 14.775C4.8125 15.6417 5.26667 16.4167 5.85 17.1ZM12 13C11.0167 13 10.1875 12.6625 9.5125 11.9875C8.8375 11.3125 8.5 10.4834 8.5 9.50003C8.5 8.5167 8.8375 7.68753 9.5125 7.01253C10.1875 6.33753 11.0167 6.00003 12 6.00003C12.9833 6.00003 13.8125 6.33753 14.4875 7.01253C15.1625 7.68753 15.5 8.5167 15.5 9.50003C15.5 10.4834 15.1625 11.3125 14.4875 11.9875C13.8125 12.6625 12.9833 13 12 13ZM12 22C10.6167 22 9.31667 21.7375 8.1 21.2125C6.88333 20.6875 5.825 19.975 4.925 19.075C4.025 18.175 3.3125 17.1167 2.7875 15.9C2.2625 14.6834 2 13.3834 2 12C2 10.6167 2.2625 9.3167 2.7875 8.10003C3.3125 6.88336 4.025 5.82503 4.925 4.92503C5.825 4.02503 6.88333 3.31253 8.1 2.78753C9.31667 2.26253 10.6167 2.00003 12 2.00003C13.3833 2.00003 14.6833 2.26253 15.9 2.78753C17.1167 3.31253 18.175 4.02503 19.075 4.92503C19.975 5.82503 20.6875 6.88336 21.2125 8.10003C21.7375 9.3167 22 10.6167 22 12C22 13.3834 21.7375 14.6834 21.2125 15.9C20.6875 17.1167 19.975 18.175 19.075 19.075C18.175 19.975 17.1167 20.6875 15.9 21.2125C14.6833 21.7375 13.3833 22 12 22ZM12 20C12.8833 20 13.7167 19.8709 14.5 19.6125C15.2833 19.3542 16 18.9834 16.65 18.5C16 18.0167 15.2833 17.6459 14.5 17.3875C13.7167 17.1292 12.8833 17 12 17C11.1167 17 10.2833 17.1292 9.5 17.3875C8.71667 17.6459 8 18.0167 7.35 18.5C8 18.9834 8.71667 19.3542 9.5 19.6125C10.2833 19.8709 11.1167 20 12 20ZM12 11C12.4333 11 12.7917 10.8584 13.075 10.575C13.3583 10.2917 13.5 9.93336 13.5 9.50003C13.5 9.0667 13.3583 8.70836 13.075 8.42503C12.7917 8.1417 12.4333 8.00003 12 8.00003C11.5667 8.00003 11.2083 8.1417 10.925 8.42503C10.6417 8.70836 10.5 9.0667 10.5 9.50003C10.5 9.93336 10.6417 10.2917 10.925 10.575C11.2083 10.8584 11.5667 11 12 11Z"
+                    fill="#303778" />
+                  <circle cx="17" cy="17" r="4" fill="#EE3F5F" stroke="white" stroke-width="2" />
+                </svg></mat-icon>
+              <span class="mattitle">Setup</span>           
+ 
+             
+              <i class="material-icons dropdownIcon" *ngIf="!isSelected" (click)="toggleSelection()">chevron_right</i>
+              <i class="material-icons dropdownIcon" *ngIf="isSelected" (click)="toggleSelection()">expand_more</i>
+            </button>
+            <div class="sub-routes" *ngIf="hidenavlist">
+              <div class="menu-sub-button " routerLink="/setup/customers" #customerRoute="routerLinkActive"
+                routerLinkActive="active">
+      
+                <span class="sub-route-label " class="mattitle-child submenu" >Customers Setup</span>
+              </div>
+              <div class="menu-sub-button  " routerLink="/setup/forms" #customerRoute="routerLinkActive"
+                routerLinkActive="active">
+      
+                <span class="sub-route-label" class="mattitle-child submenu">Form setup</span>
+              </div>
+              <div class="menu-sub-button "   routerLink="/setup/projects" #customerRoute="routerLinkActive"
+              routerLinkActive="active">
+             
+              <span class="sub-route-label" class="mattitle-child submenu">Project setup</span>
+            </div>
+            
+            
+      
+            <div class="menu-sub-button sub-route-div" routerLink="/setup/roles" #rolesRoute="routerLinkActive"
+            routerLinkActive="active">
+          
+            <span class="sub-route-label" class="mattitle-child submenu">Role Setup</span>
+          </div>
+      
+              <div class="menu-sub-button sub-route-div" routerLink="/setup/users" #usersRoute="routerLinkActive"
+                routerLinkActive="active">
+              
+                <span class="sub-route-label" class="mattitle-child submenu">User Setup</span>
+              </div>
+              <div class="menu-sub-button sub-route-div" routerLink="/setup/queues" #groupsRoute="routerLinkActive"
+                routerLinkActive="active">
+           
+                <span class="sub-route-label" class="mattitle-child submenu">Queue Setup</span>
+              </div>
+              <div class="menu-sub-button sub-route-div" routerLink="/setup/custProjectQueue" #groupsRoute="routerLinkActive"
+                routerLinkActive="active">
+         
+                <span class="sub-route-label" class="mattitle-child submenu">Customer project <br/>
+                  Queue Setup</span>
+              </div>
+              
+              
+              
+      
+      
+      
+            </div>
+      
+            <button class="btn btn-light  menu-button" (click)="hidenavclaim()" routerLink="/claims"  routerLinkActive="active"
+              #claimsRoute="routerLinkActive" routerLinkActive="active" [class]="claimsRoute.isActive ? 'isactive' : ''">
+              <mat-icon><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M10 12C8.9 12 7.95833 11.6084 7.175 10.825C6.39167 10.0417 6 9.10003 6 8.00003C6 6.90003 6.39167 5.95836 7.175 5.17503C7.95833 4.3917 8.9 4.00003 10 4.00003C11.1 4.00003 12.0417 4.3917 12.825 5.17503C13.6083 5.95836 14 6.90003 14 8.00003C14 9.10003 13.6083 10.0417 12.825 10.825C12.0417 11.6084 11.1 12 10 12ZM2 20V17.2C2 16.65 2.14167 16.1334 2.425 15.65C2.70833 15.1667 3.1 14.8 3.6 14.55C4.45 14.1167 5.40833 13.75 6.475 13.45C7.54167 13.15 8.71667 13 10 13H10.35C10.45 13 10.55 13.0167 10.65 13.05C10.5167 13.35 10.4042 13.6625 10.3125 13.9875C10.2208 14.3125 10.15 14.65 10.1 15H10C8.81667 15 7.75417 15.15 6.8125 15.45C5.87083 15.75 5.1 16.05 4.5 16.35C4.35 16.4334 4.22917 16.55 4.1375 16.7C4.04583 16.85 4 17.0167 4 17.2V18H10.3C10.4 18.35 10.5333 18.6959 10.7 19.0375C10.8667 19.3792 11.05 19.7 11.25 20H2ZM16 21L15.7 19.5C15.5 19.4167 15.3125 19.3292 15.1375 19.2375C14.9625 19.1459 14.7833 19.0334 14.6 18.9L13.15 19.35L12.15 17.65L13.3 16.65C13.2667 16.4167 13.25 16.2 13.25 16C13.25 15.8 13.2667 15.5834 13.3 15.35L12.15 14.35L13.15 12.65L14.6 13.1C14.7833 12.9667 14.9625 12.8542 15.1375 12.7625C15.3125 12.6709 15.5 12.5834 15.7 12.5L16 11H18L18.3 12.5C18.5 12.5834 18.6875 12.675 18.8625 12.775C19.0375 12.875 19.2167 13 19.4 13.15L20.85 12.65L21.85 14.4L20.7 15.4C20.7333 15.6 20.75 15.8084 20.75 16.025C20.75 16.2417 20.7333 16.45 20.7 16.65L21.85 17.65L20.85 19.35L19.4 18.9C19.2167 19.0334 19.0375 19.1459 18.8625 19.2375C18.6875 19.3292 18.5 19.4167 18.3 19.5L18 21H16ZM17 18C17.55 18 18.0208 17.8042 18.4125 17.4125C18.8042 17.0209 19 16.55 19 16C19 15.45 18.8042 14.9792 18.4125 14.5875C18.0208 14.1959 17.55 14 17 14C16.45 14 15.9792 14.1959 15.5875 14.5875C15.1958 14.9792 15 15.45 15 16C15 16.55 15.1958 17.0209 15.5875 17.4125C15.9792 17.8042 16.45 18 17 18ZM10 10C10.55 10 11.0208 9.8042 11.4125 9.41253C11.8042 9.02086 12 8.55003 12 8.00003C12 7.45003 11.8042 6.9792 11.4125 6.58753C11.0208 6.19586 10.55 6.00003 10 6.00003C9.45 6.00003 8.97917 6.19586 8.5875 6.58753C8.19583 6.9792 8 7.45003 8 8.00003C8 8.55003 8.19583 9.02086 8.5875 9.41253C8.97917 9.8042 9.45 10 10 10Z"
+                    fill="#303778" />
+                </svg></mat-icon>
+              <span class="mattitle">Claims</span>
+            
+ 
+              <i class="material-icons dropdownIcon" *ngIf="!isselectedClames" (click)="toggleSelectionClimes()">chevron_right</i>
+              <i class="material-icons dropdownIcon" *ngIf="isselectedClames" (click)="toggleSelectionClimes()">expand_more</i>
+      
+            </button>
+
+            <div class="sub-routes">
+              <div class="menu-sub-button sub-route-div" *ngIf="hidenavlistclaim" routerLink="/claims/hcfa"
+                #hcfaRoute="routerLinkActive" routerLinkActive="active">
+      
+                <span class="sub-route-label" class="mattitle-child submenu">HCFA DDE</span>
+              </div>
+              <div class="menu-sub-button sub-route-div" *ngIf="hidenavlistclaim" routerLink="/claims/ub"
+                #ubRoute="routerLinkActive" routerLinkActive="active">
+      
+                <span class="sub-route-label" class="mattitle-child submenu">UB DDE</span>
+              </div>
+              <div class="menu-sub-button sub-route-div" *ngIf="hidenavlistclaim" routerLink="/claims/ada"
+                #adaRoute="routerLinkActive" routerLinkActive="active">
+      
+                <span class="sub-route-label" class="mattitle-child submenu">ADA DDE</span>
+              </div>
+              <div class="menu-sub-button sub-route-div" *ngIf="hidenavlistclaim" routerLink="/claims/web"
+                #adaRoute="routerLinkActive" routerLinkActive="active">
+      
+                <span class="sub-route-label" class="mattitle-child submenu">Web Upload</span>
+              </div>
+            </div>
+
+
+            <button  class="btn btn-light  menu-button" routerLink="/edit-claims" [routerLinkActiveOptions]="{ exact: true }"
+              #editClaimsRoute="routerLinkActive" routerLinkActive="active"
+              [class]="editClaimsRoute.isActive ? 'active-link' : ''">
+              <mat-icon><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M10.95 18L16.6 12.35L15.15 10.9L10.925 15.125L8.825 13.025L7.4 14.45L10.95 18ZM6 22C5.45 22 4.97917 21.8042 4.5875 21.4125C4.19583 21.0209 4 20.55 4 20V4.00003C4 3.45003 4.19583 2.9792 4.5875 2.58753C4.97917 2.19586 5.45 2.00003 6 2.00003H14L20 8.00003V20C20 20.55 19.8042 21.0209 19.4125 21.4125C19.0208 21.8042 18.55 22 18 22H6ZM13 9.00003V4.00003H6V20H18V9.00003H13Z"
+                    fill="#303778" />
+                </svg></mat-icon>
+              <span class="mattitle">Edit Claims</span>
+              </button>
+
+
+            <button  class="btn btn-light  menu-button" routerLink="/claim-status" [routerLinkActiveOptions]="{ exact: true }"
+              #claimStatusRoute="routerLinkActive" routerLinkActive="active"
+              [class]="claimStatusRoute.isActive ? 'active-link' : ''">
+              <mat-icon><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M9 21C7.9 21 6.95833 20.6084 6.175 19.825C5.39167 19.0417 5 18.1 5 17V8.82503C4.41667 8.60836 3.9375 8.24586 3.5625 7.73753C3.1875 7.2292 3 6.65003 3 6.00003C3 5.1667 3.29167 4.45836 3.875 3.87503C4.45833 3.2917 5.16667 3.00003 6 3.00003C6.83333 3.00003 7.54167 3.2917 8.125 3.87503C8.70833 4.45836 9 5.1667 9 6.00003C9 6.65003 8.8125 7.2292 8.4375 7.73753C8.0625 8.24586 7.58333 8.60836 7 8.82503V17C7 17.55 7.19583 18.0209 7.5875 18.4125C7.97917 18.8042 8.45 19 9 19C9.55 19 10.0208 18.8042 10.4125 18.4125C10.8042 18.0209 11 17.55 11 17V7.00003C11 5.90003 11.3917 4.95836 12.175 4.17503C12.9583 3.3917 13.9 3.00003 15 3.00003C16.1 3.00003 17.0417 3.3917 17.825 4.17503C18.6083 4.95836 19 5.90003 19 7.00003V15.175C19.5833 15.3917 20.0625 15.7542 20.4375 16.2625C20.8125 16.7709 21 17.35 21 18C21 18.8334 20.7083 19.5417 20.125 20.125C19.5417 20.7084 18.8333 21 18 21C17.1667 21 16.4583 20.7084 15.875 20.125C15.2917 19.5417 15 18.8334 15 18C15 17.35 15.1875 16.7667 15.5625 16.25C15.9375 15.7334 16.4167 15.375 17 15.175V7.00003C17 6.45003 16.8042 5.9792 16.4125 5.58753C16.0208 5.19586 15.55 5.00003 15 5.00003C14.45 5.00003 13.9792 5.19586 13.5875 5.58753C13.1958 5.9792 13 6.45003 13 7.00003V17C13 18.1 12.6083 19.0417 11.825 19.825C11.0417 20.6084 10.1 21 9 21ZM6 7.00003C6.28333 7.00003 6.52083 6.9042 6.7125 6.71253C6.90417 6.52086 7 6.28336 7 6.00003C7 5.7167 6.90417 5.4792 6.7125 5.28753C6.52083 5.09586 6.28333 5.00003 6 5.00003C5.71667 5.00003 5.47917 5.09586 5.2875 5.28753C5.09583 5.4792 5 5.7167 5 6.00003C5 6.28336 5.09583 6.52086 5.2875 6.71253C5.47917 6.9042 5.71667 7.00003 6 7.00003ZM18 19C18.2833 19 18.5208 18.9042 18.7125 18.7125C18.9042 18.5209 19 18.2834 19 18C19 17.7167 18.9042 17.4792 18.7125 17.2875C18.5208 17.0959 18.2833 17 18 17C17.7167 17 17.4792 17.0959 17.2875 17.2875C17.0958 17.4792 17 17.7167 17 18C17 18.2834 17.0958 18.5209 17.2875 18.7125C17.4792 18.9042 17.7167 19 18 19Z"
+                    fill="#303778" />
+                  <circle cx="17" cy="18" r="4" fill="#EE3F5F" stroke="white" stroke-width="2" />
+                </svg></mat-icon>
+              <span class="mattitle">Claim Status</span>
+              </button>
+
+            <button  class="btn btn-light  menu-button" routerLink="/re-submission" [routerLinkActiveOptions]="{ exact: true }"
+              #reSubmissionRoute="routerLinkActive" routerLinkActive="active"
+              [class]="reSubmissionRoute.isActive ? 'active-link' : ''">
+              <mat-icon><svg xmlns="http://www.w3.org/2000/svg" width="18" height="20" viewBox="0 0 18 20" fill="none">
+                  <path
+                    d="M2 20C1.45 20 0.979167 19.8042 0.5875 19.4125C0.195833 19.0209 0 18.55 0 18V4.00003C0 3.45003 0.195833 2.9792 0.5875 2.58753C0.979167 2.19586 1.45 2.00003 2 2.00003H6.2C6.41667 1.40003 6.77917 0.916697 7.2875 0.550031C7.79583 0.183364 8.36667 3.05176e-05 9 3.05176e-05C9.63333 3.05176e-05 10.2042 0.183364 10.7125 0.550031C11.2208 0.916697 11.5833 1.40003 11.8 2.00003H16C16.55 2.00003 17.0208 2.19586 17.4125 2.58753C17.8042 2.9792 18 3.45003 18 4.00003V18C18 18.55 17.8042 19.0209 17.4125 19.4125C17.0208 19.8042 16.55 20 16 20H2ZM2 18H16V4.00003H2V18ZM4 16H11V14H4V16ZM4 12H14V10H4V12ZM4 8.00003H14V6.00003H4V8.00003ZM9 3.25003C9.21667 3.25003 9.39583 3.1792 9.5375 3.03753C9.67917 2.89586 9.75 2.7167 9.75 2.50003C9.75 2.28336 9.67917 2.1042 9.5375 1.96253C9.39583 1.82086 9.21667 1.75003 9 1.75003C8.78333 1.75003 8.60417 1.82086 8.4625 1.96253C8.32083 2.1042 8.25 2.28336 8.25 2.50003C8.25 2.7167 8.32083 2.89586 8.4625 3.03753C8.60417 3.1792 8.78333 3.25003 9 3.25003Z"
+                    fill="#303778" />
+                </svg>
+              </mat-icon>
+              <span class="mattitle">Re-submission</span>
+            </button>
+      
+            <button class="btn btn-light  menu-button" routerLink="/review" [routerLinkActiveOptions]="{ exact: true }"
+              #searchStatusRoute="routerLinkActive" routerLinkActive="active"
+              [class]="searchStatusRoute.isActive ? 'active-link' : ''">
+              <mat-icon>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23 17" fill="none">
+                  <path
+                    d="M14 8.38634C14 9.67612 12.9255 10.7217 11.6 10.7217C10.2745 10.7217 9.2 9.67612 9.2 8.38634C9.2 7.09656 10.2745 6.05098 11.6 6.05098C12.9255 6.05098 14 7.09656 14 8.38634Z"
+                    stroke="#303778" stroke-width="2" />
+                </svg>
+              </mat-icon>
+              <span class="mattitle">Review</span>
+            </button>
+      
+      
+            <button class="btn btn-light  menu-button" routerLink="/approve" [routerLinkActiveOptions]="{ exact: true }"
+              #searchStatusRoute="routerLinkActive" routerLinkActive="active"
+              [class]="searchStatusRoute.isActive ? 'active-link' : ''">
+              <mat-icon><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none">
+                  <path
+                    d="M17.5 10C17.5 14.1422 14.1421 17.5 10 17.5C5.85786 17.5 2.5 14.1422 2.5 10C2.5 5.8579 5.85786 2.50003 10 2.50003C11.1767 2.50003 12.2901 2.77102 13.2812 3.254M16.0938 5.31253L9.53125 11.875L7.65625 10"
+                    stroke="#303778" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg></mat-icon>
+              <span class="mattitle">Approve</span>
+              </button>
+      
+            <button class="btn btn-light  menu-button" routerLink="/claim-search" [routerLinkActiveOptions]="{ exact: true }"
+              #searchStatusRoute="routerLinkActive" routerLinkActive="active"
+              [class]="searchStatusRoute.isActive ? 'active-link' : ''">
+              <mat-icon><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path
+                    d="M14.1057 14.2L17 17M9.5 6.00003C11.1569 6.00003 12.5 7.34318 12.5 9.00003M16.0667 9.53336C16.0667 13.1416 13.1416 16.0667 9.53333 16.0667C5.92507 16.0667 3 13.1416 3 9.53336C3 5.9251 5.92507 3.00003 9.53333 3.00003C13.1416 3.00003 16.0667 5.9251 16.0667 9.53336Z"
+                    stroke="#303778" stroke-width="2" stroke-linecap="round" />
+                </svg></mat-icon>
+              <span class="mattitle">Claim Search</span>
+              </button>
+      
+      
+            <button class="btn btn-light  menu-button" routerLink="/fields" [routerLinkActiveOptions]="{ exact: true }"
+              #searchStatusRoute="routerLinkActive" routerLinkActive="active"
+              [class]="searchStatusRoute.isActive ? 'active-link' : ''">
+              <mat-icon><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 18" fill="none">
+                  <path
+                    d="M2 18C1.45 18 0.979167 17.8042 0.5875 17.4125C0.195833 17.0209 0 16.55 0 16V2.00003C0 1.45003 0.195833 0.979197 0.5875 0.587531C0.979167 0.195864 1.45 3.05176e-05 2 3.05176e-05H18C18.55 3.05176e-05 19.0208 0.195864 19.4125 0.587531C19.8042 0.979197 20 1.45003 20 2.00003V16C20 16.55 19.8042 17.0209 19.4125 17.4125C19.0208 17.8042 18.55 18 18 18H2ZM2 16H18V2.00003H2V16ZM3 14H8V12H3V14ZM12.55 12L17.5 7.05003L16.075 5.62503L12.55 9.17503L11.125 7.75003L9.725 9.17503L12.55 12ZM3 10H8V8.00003H3V10ZM3 6.00003H8V4.00003H3V6.00003Z"
+                    fill="#303778" />
+                </svg></mat-icon>
+              <span class="mattitle">Fields</span>
+              </button>
+
+            <button (click)="hidenavreport()" class="btn btn-light  menu-button" routerLink="/reports" [routerLinkActiveOptions]="{ exact: true }"
+              #reportsRoute="routerLinkActive" routerLinkActive="active" [class]="reportsRoute.isActive ? 'active-link' : ''">
+              
+              <mat-icon><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path
+                    d="M12.5001 2.00003V5.00003C12.5001 5.55232 12.9478 6.00003 13.5001 6.00003H16.5001M7.00007 15V11M10.0001 15L10.0001 7.00003M13.0001 15V11M15.0001 3.50003C14.555 3.10182 14.0932 2.62951 13.8016 2.32276C13.6076 2.11864 13.3395 2.00003 13.0579 2.00003H5.49983C4.39527 2.00003 3.49984 2.89545 3.49983 4.00002L3.49976 16C3.49975 17.1045 4.39518 18 5.49975 18L14.4998 18C15.6043 18 16.4998 17.1046 16.4998 16.0001L16.5001 5.39822C16.5001 5.14252 16.4025 4.89673 16.2251 4.71264C15.8969 4.37224 15.3489 3.81213 15.0001 3.50003Z"
+                    stroke="#303778" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg></mat-icon>
+      
+              <span class="mattitle">Reports</span>
+              <i class="material-icons dropdownIcon" *ngIf="!isSelectedReports" (click)="toggleSelectionReports()">chevron_right</i>
+              <i class="material-icons dropdownIcon" *ngIf="isSelectedReports" (click)="toggleSelectionReports()">expand_more</i>
+            </button>
+
+            <div class="sub-routes" *ngIf="reportsub">
+              <div class="menu-sub-button sub-route-div"  routerLink="/reports/claim-summary"
+                #hcfaRoute="routerLinkActive" routerLinkActive="active">
+      
+                <span class="sub-route-label" class="mattitle-child submenu">Claim Summary Report</span>
+              </div>
+              <div class="menu-sub-button sub-route-div"  routerLink="/reports/claim-volume"
+                #ubRoute="routerLinkActive" routerLinkActive="active">
+      
+                <span class="sub-route-label" class="mattitle-child submenu">Claim Volume Report</span>
+              </div>
+              <div class="menu-sub-button sub-route-div" routerLink="/reports/claim-status"
+                #adaRoute="routerLinkActive" routerLinkActive="active">
+      
+                <span class="sub-route-label" class="mattitle-child submenu">Claim Status Report </span>
+              </div>
+              <div class="menu-sub-button sub-route-div" routerLink="/reports/claim-aging"
+                #adaRoute="routerLinkActive" routerLinkActive="active">
+      
+                <span class="sub-route-label" class="mattitle-child submenu">claim aging Report </span>
+              </div>
+              <div class="menu-sub-button sub-route-div"  routerLink="/reports/payment-summary"
+              #adaRoute="routerLinkActive" routerLinkActive="active">
+    
+              <span class="sub-route-label" class="mattitle-child submenu">Payment Ack Summary 
+                Report </span>
+            </div>
+              </div>
+          </mat-sidenav>
+        
+
+          <div class="" style="margin-top: 50px;">
+
+            <h1 class="questionmark" style="text-align: center;">?</h1>
+
+            <p style="text-align: center;color:white;font-size: 12px;">Need Help with firstHealth?</p>
+
+            <button class="btn btn-warning" style="text-align: center; background: #F57E36; font-size: 12px; margin-left: 25px;">Go to help center</button>
+          </div>
+
+        
+        </div>
+  
+    </div>
+  
+    
+    <div class="col-10" style="background-color: #F5F7FD;">      
+          <div class="row">
+            <div class="col-12">
+
+              <div class="header  float-end">
+
+
+                <div class="iconslist">
+            
+            
+                  <span class="navicons">
+                    <mat-icon><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M6 19H9V13H15V19H18V10L12 5.5L6 10V19ZM4 21V9L12 3L20 9V21H13V15H11V21H4Z" fill="#303778" />
+                      </svg></mat-icon>
+                  </span>
+                  <span class="navicons">
+                    <mat-icon><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path
+                          d="M4 19V17H6V10C6 8.61667 6.41667 7.3875 7.25 6.3125C8.08333 5.2375 9.16667 4.53333 10.5 4.2V3.5C10.5 3.08333 10.6458 2.72917 10.9375 2.4375C11.2292 2.14583 11.5833 2 12 2C12.4167 2 12.7708 2.14583 13.0625 2.4375C13.3542 2.72917 13.5 3.08333 13.5 3.5V4.2C14.8333 4.53333 15.9167 5.2375 16.75 6.3125C17.5833 7.3875 18 8.61667 18 10V17H20V19H4ZM12 22C11.45 22 10.9792 21.8042 10.5875 21.4125C10.1958 21.0208 10 20.55 10 20H14C14 20.55 13.8042 21.0208 13.4125 21.4125C13.0208 21.8042 12.55 22 12 22ZM8 17H16V10C16 8.9 15.6083 7.95833 14.825 7.175C14.0417 6.39167 13.1 6 12 6C10.9 6 9.95833 6.39167 9.175 7.175C8.39167 7.95833 8 8.9 8 10V17Z"
+                          fill="#303778" />
+                        <circle cx="17" cy="17" r="4" fill="#EE3F5F" stroke="#F5F7FE" stroke-width="2" />
+                      </svg></mat-icon>
+                  </span>
+                  <span class="navicons">
+                    <mat-icon><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path
+                          d="M1 21L12 2L23 21H1ZM4.45 19H19.55L12 6L4.45 19ZM12 18C12.2833 18 12.5208 17.9042 12.7125 17.7125C12.9042 17.5208 13 17.2833 13 17C13 16.7167 12.9042 16.4792 12.7125 16.2875C12.5208 16.0958 12.2833 16 12 16C11.7167 16 11.4792 16.0958 11.2875 16.2875C11.0958 16.4792 11 16.7167 11 17C11 17.2833 11.0958 17.5208 11.2875 17.7125C11.4792 17.9042 11.7167 18 12 18ZM11 15H13V10H11V15Z"
+                          fill="#303778" />
+                      </svg></mat-icon>
+                  </span>
+                  <span class="navicons">
+                    <mat-icon><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path
+                          d="M5 21C4.45 21 3.97917 20.8042 3.5875 20.4125C3.19583 20.0208 3 19.55 3 19V5C3 4.45 3.19583 3.97917 3.5875 3.5875C3.97917 3.19583 4.45 3 5 3H12V5H5V19H12V21H5ZM16 17L14.625 15.55L17.175 13H9V11H17.175L14.625 8.45L16 7L21 12L16 17Z"
+                          fill="#303778" />
+                      </svg></mat-icon>
+                  </span>
+                  <span class="navicons">
+                    <mat-icon><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path
+                          d="M9.24995 22L8.84995 18.8C8.63328 18.7167 8.42912 18.6167 8.23745 18.5C8.04578 18.3833 7.85828 18.2583 7.67495 18.125L4.69995 19.375L1.94995 14.625L4.52495 12.675C4.50828 12.5583 4.49995 12.4458 4.49995 12.3375V11.6625C4.49995 11.5542 4.50828 11.4417 4.52495 11.325L1.94995 9.375L4.69995 4.625L7.67495 5.875C7.85828 5.74167 8.04995 5.61667 8.24995 5.5C8.44995 5.38333 8.64995 5.28333 8.84995 5.2L9.24995 2H14.75L15.15 5.2C15.3666 5.28333 15.5708 5.38333 15.7625 5.5C15.9541 5.61667 16.1416 5.74167 16.325 5.875L19.3 4.625L22.05 9.375L19.475 11.325C19.4916 11.4417 19.5 11.5542 19.5 11.6625V12.3375C19.5 12.4458 19.4833 12.5583 19.45 12.675L22.025 14.625L19.275 19.375L16.325 18.125C16.1416 18.2583 15.95 18.3833 15.75 18.5C15.55 18.6167 15.35 18.7167 15.15 18.8L14.75 22H9.24995ZM11 20H12.975L13.325 17.35C13.8416 17.2167 14.3208 17.0208 14.7625 16.7625C15.2041 16.5042 15.6083 16.1917 15.975 15.825L18.45 16.85L19.425 15.15L17.275 13.525C17.3583 13.2917 17.4166 13.0458 17.45 12.7875C17.4833 12.5292 17.5 12.2667 17.5 12C17.5 11.7333 17.4833 11.4708 17.45 11.2125C17.4166 10.9542 17.3583 10.7083 17.275 10.475L19.425 8.85L18.45 7.15L15.975 8.2C15.6083 7.81667 15.2041 7.49583 14.7625 7.2375C14.3208 6.97917 13.8416 6.78333 13.325 6.65L13 4H11.025L10.675 6.65C10.1583 6.78333 9.67912 6.97917 9.23745 7.2375C8.79578 7.49583 8.39162 7.80833 8.02495 8.175L5.54995 7.15L4.57495 8.85L6.72495 10.45C6.64162 10.7 6.58328 10.95 6.54995 11.2C6.51662 11.45 6.49995 11.7167 6.49995 12C6.49995 12.2667 6.51662 12.525 6.54995 12.775C6.58328 13.025 6.64162 13.275 6.72495 13.525L4.57495 15.15L5.54995 16.85L8.02495 15.8C8.39162 16.1833 8.79578 16.5042 9.23745 16.7625C9.67912 17.0208 10.1583 17.2167 10.675 17.35L11 20ZM12.05 15.5C13.0166 15.5 13.8416 15.1583 14.525 14.475C15.2083 13.7917 15.55 12.9667 15.55 12C15.55 11.0333 15.2083 10.2083 14.525 9.525C13.8416 8.84167 13.0166 8.5 12.05 8.5C11.0666 8.5 10.2375 8.84167 9.56245 9.525C8.88745 10.2083 8.54995 11.0333 8.54995 12C8.54995 12.9667 8.88745 13.7917 9.56245 14.475C10.2375 15.1583 11.0666 15.5 12.05 15.5Z"
+                          fill="#303778" />
+                        <circle cx="18" cy="17" r="4" fill="#EE3F5F" stroke="#F5F7FE" stroke-width="2" />
+                      </svg></mat-icon>
+                  </span>
+                  <span class="navicons">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="2" style="margin-right:28px" height="24" viewBox="0 0 2 24"
+                      fill="none">
+                      <path d="M1 0V24" stroke="#7C7E84" stroke-opacity="0.5" />
+                    </svg>
+                  </span>
+                  <button class="user-name" style="background-color: #303778; border-radius: 4px; width:220px; height: 47px;">
+                    <span style="margin-top: 13px; color:white">John Doe (Finance)
+                    </span>
+                    <span style="margin-top: 13px;">
+                      <mat-icon color="accent" class="action-icon" (click)="toggleMenu()" [matMenuTriggerFor]="userMenu"
+                        #menuTrigger="matMenuTrigger">
+            
+                        <svg xmlns="http://www.w3.org/2000/svg" width="9" height="5" viewBox="0 0 9 5" fill="none">
+                          <path d="M0.15625 0L4.39889 0.169706L8.64153 0L4.39889 4.24264L0.15625 0Z" fill="white" />
+                        </svg>
+                      </mat-icon>
+                    </span>
+            
+            
+                  </button>
+            
+                  <mat-menu #userMenu="matMenu">
+                    <div mat-menu-item>Profile</div>
+                    <div mat-menu-item>Sign Out</div>
+                  </mat-menu>
+                  
+
+            
+            
+                </div>          
+            
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="">
+      
+              <div>
+                <router-outlet></router-outlet>
+              </div>
+             </div>
+          </div>
+
+    </div>
+
+    
+  
+  <div>
+
+
+
+    <div class="row">
+        <div class="footer">
+
+    <app-footer></app-footer>
+
+  </div>
+    </div>
+
+
+</div>

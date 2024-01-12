@@ -1,0 +1,85 @@
+
+
+<mat-card >
+    <mat-card-content >       
+        <mat-card-title>Queue Setup</mat-card-title> 
+        <mat-divider></mat-divider>
+
+        <form class="mt-4  " >
+            <div class="padding " >
+                <mat-form-field appearance="outline" fullwidth>
+                    <mat-label >QueueName</mat-label>
+                    <input matInput type="text" placeholder="QueueName"/>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Code</mat-label>
+                    <input matInput type="text" placeholder="Code..."/>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Effect From</mat-label>
+                    <input  matInput type="text" placeholder="Effect From"/>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Effect To</mat-label>
+                    <input matInput type="text" placeholder="Effect To"/>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Active</mat-label>
+                    <mat-select>
+                        <mat-option value="one">None</mat-option>
+                        <mat-option value="one">Y</mat-option>
+                        <mat-option value="two">N</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                
+            </div>
+            <div >
+                <mat-form-field appearance="outline"  class="description">
+                    <mat-label>Description</mat-label>
+                    <textarea matInput placeholder="Description..." ></textarea>
+                </mat-form-field>
+            </div>             
+           
+            <div class="marin-left">
+                <button  mat-stroked-button color="accent">  Submit </button>
+                <button mat-flat-button color="primary" type="submit" class="ms-3">Cancel</button>   
+            </div>          
+        </form>             
+    </mat-card-content>  
+      
+</mat-card>
+<mat-card>
+    <mat-card-content>
+        <mat-card-title>Queue List</mat-card-title>
+        <mat-divider></mat-divider>
+        <div class="mt-4">
+            <p-table  [tableStyle]="{ 'min-width': '50rem' }">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>SerialNo</th>
+                        <th>Queue</th>
+                        <th>Code</th>
+                        <th>From</th>
+                        <th>Thru</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-product>
+                    <tr>
+                        <td>1</td>
+                        <td>queue</td>
+                        <th>code</th>
+                        <th>from</th>
+                        <th>thru</th>
+                        <th>status</th>
+                        <th>action</th>            
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+        
+
+       
+    </mat-card-content>
+</mat-card>

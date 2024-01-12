@@ -1,0 +1,29 @@
+// // error-popup.component.scss
+
+// // Variables
+// $error-popup-background: #f44336; // Red background color for error popup
+// $error-popup-text-color: #ffffff;   // White text color for error popup
+// $error-icon-color: #ffffff;         // White color for error icon
+
+// // Error Popup Styles
+// .error-popup {
+//   background-color: $error-popup-background;
+//   color: $error-popup-text-color;
+//   padding: 16px;
+//   border-radius: 8px;
+//   text-align: center;
+//   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+// }
+
+// .icon {
+//     font-size: 48px;  // Set the icon size
+//     color: $error-icon-color;
+//     font-size: 36px;
+//   }
+
+  .container{
+    width:300px;
+    height: 100px;
+    background-color: red;
+}
+  

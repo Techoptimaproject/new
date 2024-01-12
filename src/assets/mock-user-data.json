@@ -1,0 +1,24 @@
+[
+    {
+        "name": "John Doe",
+        "userCode": "JD123",
+        "userId": "12345",
+        "deptName": "Sales",
+        "deptCode": "SAL123",
+        "reportsTo": "Manager",
+        "role": "Sales Executive",
+        "emailId": "john.doe@example.com",
+        "status": "Y"
+    },
+    {
+        "name": "Alice Johnson",
+        "userCode": "AJ567",
+        "userId": "67890",
+        "deptName": "Marketing",
+        "deptCode": "MKT789",
+        "reportsTo": "Supervisor",
+        "role": "Marketing Coordinator",
+        "emailId": "alice.j@example.com",
+        "status": "N"
+    }
+]

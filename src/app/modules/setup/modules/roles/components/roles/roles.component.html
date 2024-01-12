@@ -1,0 +1,130 @@
+<div class="m-4">
+  <div class="card rounded-0  border-info">
+    <section #RoleList>
+      <!-- <app-card-header [title]="'Setup/Customers'"></app-card-header> -->
+      <ol class="breadcrumb ms-4 mt-2 ">
+        <img src="assets/img/Account.png" alt="logo" />
+        <li class="breadcrumb-item setup-hearder ms-2 "><a href="#">Setup</a></li>
+        <li class="breadcrumb-item active align-header" aria-current="page">Role Setup</li>
+      </ol>
+      <div class="d-flex justify-content-between ps-4 pb-3 pr-3 ">
+        <div>
+          <input class="search-input" type="text" placeholder="Search" [(ngModel)]="searchText"
+            (ngModelChange)="filterGrid()">
+          <i class="bi bi-search searchicon"></i>      
+        </div>
+
+        <button class="addProject" (click)="addRole()">
+          <img src="assets/img/Group 605.png" alt="logo" />
+          Add New Role
+        </button>
+      </div>
+
+      <app-roles-list [rolesList]="roleList" (triggerEditRow)="editRole($event)"></app-roles-list>
+
+    </section>
+
+    <section #newOrEditRoleTmpl *ngIf="isNewRole || isEditRole">
+
+      <app-card-header [title]="'New Role'"></app-card-header>
+
+      <div class="">
+        <div class="container m-2 ">
+          <form class="row " [formGroup]="roleForm" (ngSubmit)="onSubmit()">
+            <div class="row">
+              <div class="col d-flex">
+                <label for="roleName" class="form-label ">Role Name*</label>
+                <div>
+                  <input type="text" id="roleName" formControlName="roleName" placeholder="Role Name"
+                    class="input-class" />
+                  <div class="error"
+                    *ngIf="roleForm.get('roleName')?.hasError('required') && roleForm.get('roleName')?.touched">
+                    Please Enter The Role Name
+                  </div>
+                  <div class="error" *ngIf="roleForm.get('roleName')?.hasError('pattern')">
+                    No Special Characters Allowed
+                  </div>
+                </div>
+              </div>
+              <div class="col d-flex">
+                <label for="roleCode" class="form-label">Role Code*</label>
+                <div class="">
+                  <input type="text" id="roleCode" formControlName="roleCode" placeholder="Role Code"
+                    class="input-class" />
+                  <div class="error"
+                    *ngIf="roleForm.get('roleCode')?.hasError('required') && roleForm.get('roleCode')?.touched">
+                    Please Enter The Role Code
+                  </div>
+                  <div class="error" *ngIf="roleForm.get('roleCode')?.hasError('pattern')">
+                    No Special Characters Allowed
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col d-flex">
+                <label for="roleType" class="form-label ">Role Type*</label>              
+                <div >
+                  <select aria-placeholder="name" formControlName="roleType" id="dropdown" class="input-class">
+                    <option [value]="null" disabled selected>Select Dropdown </option> 
+                    <option *ngFor="let roleData of RoleLokup" [value]="roleData.roleName">
+                      {{roleData.roleName }}
+                    </option>                     
+                  </select>
+                  <div class="error" 
+                    *ngIf="roleForm.get('roleType')?.hasError('required') && roleForm.get('roleType')?.touched">
+                    Please Select Dropdown
+                  </div>
+                </div>                
+              </div>
+              
+              <div class="col d-flex">
+                <label for="permId" class="form-label ">Permission*</label>
+                <div >
+                  <select aria-placeholder="name" formControlName="permId" id="dropdown" class="input-class">
+                    <option [value]="null" disabled selected>Select Dropdown </option> 
+                    <option *ngFor="let permdata of permLokup" [value]="permdata.permId">
+                      {{permdata.permName }}
+                    </option>                     
+                  </select>
+                  <div class="error" 
+                    *ngIf="roleForm.get('roleType')?.hasError('required') && roleForm.get('roleType')?.touched">
+                    Please Select Dropdown
+                  </div>
+                </div>
+              </div>
+            </div>
+
+             
+
+            <div class="row">
+              <div class="col d-flex">
+                <label for="status" class="form-label">Status</label>
+                <div style="margin-left: 90px;">
+                  <label>
+                    <input type="radio" formControlName="status" value="Active"> Active
+                  </label>
+                  <label class="ms-2">
+                    <input type="radio" formControlName="status" value="Inactive"> Inactive
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="d-flex justify-content-center">
+              <div class="col"></div>
+              <div class="col">
+                <button (click)="onCancel()" class="me-2 submit-button">
+                  Cancel
+                </button>
+                <button class="cancel-button" color="accent" type="submit">Save</button>
+              </div>
+              <div class="col"></div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

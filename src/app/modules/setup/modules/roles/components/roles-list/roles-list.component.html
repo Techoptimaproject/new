@@ -1,0 +1,59 @@
+<div>
+   
+    <div class="" style="margin-left:20px; margin-right: 20px;">
+        <p-table
+            class=" "  
+            [columns]="cols"
+            [value]="rolesList"
+            [paginator]="true"
+            [rows]="4"
+            [showCurrentPageReport]="true"
+            [tableStyle]="{ 'width': '100%' }"
+            currentPageReportTemplate="Items per page:"
+            [rowsPerPageOptions]="[4, 10, 15,100]"
+            >
+        
+            <ng-template pTemplate="header"  let-columns>
+              <tr class="table-head " >
+                  <th *ngFor="let col of columns;let i = index"   style=" background: #CBD7F6; border-left: 2px solid white;  font-size:14px;font-weight: 800; margin-left: 90px;">
+                    <div>
+                      {{ col.header }}
+                      <!-- <i  class="bi bi-caret-down-fill "  ></i> -->
+                      <i class="bi bi-caret-down-fill" *ngIf="col.field === sortField && sortOrder === 1" (click)="sortData(col.field)"></i>
+                      <i class="bi bi-caret-down-fill" *ngIf="col.field === sortField && sortOrder === -1" (click)="sortData(col.field)"></i>
+                      <i class="bi bi-caret-down-fill" *ngIf="col.field !== sortField" (click)="sortData(col.field)"></i>
+                    </div>
+                    </th>
+              </tr>
+          </ng-template>
+
+        <ng-template  pTemplate="body" let-rowIndex let-rowData let-columns="columns">
+            <tr >
+              <td *ngFor="let col of columns">
+                <ng-container *ngIf="col.field !== ''; else actionTpl">
+                  {{  col.field === 'index' ? '': rowData[col.field] }}
+                </ng-container>
+                <!-- <ng-container *ngIf="col.field === 'status'; else otherFields">
+                  {{ rowData[col.field] ? 'Active' : 'Inactive' }}
+                </ng-container>
+                <ng-template #otherFields>
+                  <ng-container *ngIf="col.field !== ''; else actionTpl">
+                    {{ col.field === 'index' ? '' : rowData[col.field] }}
+                  </ng-container>
+                </ng-template> -->
+                <ng-template #actionTpl> 
+                  <div class="d-flex">
+                    <button  (click)="editRow(rowData,'edit')" style="border: none; background: none;" >
+                      <img src="../../../../../../../assets/img/edit .png" alt="edit" />
+                    </button>
+                    <button (click)="editRow(rowData,'delete')" class="ml-1"  style="border: none; background: none;">
+                      <img src="../../../../../../../assets/img/delete.png" alt="delete"/>
+                    </button>
+                  </div>
+                </ng-template>
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>    
+    </div>
+</div>

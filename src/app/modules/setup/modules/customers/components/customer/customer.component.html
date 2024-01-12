@@ -1,0 +1,264 @@
+    <div class="m-4">
+    <div class="card rounded-0  border-info">
+        <section #CustomerList>
+            <!-- <app-card-header [title]="'Setup/Customers'"></app-card-header> -->
+            <ol class="breadcrumb ms-4 mt-2 ">
+                <img src="assets/img/Account.png" alt="logo"/>
+                <li class="breadcrumb-item setup-hearder ms-2 "><a href="#">Setup</a></li>
+                <li class="breadcrumb-item active align-header" aria-current="page">Customer Setup</li>
+              </ol>
+                <div class="d-flex justify-content-between ps-4 pb-3 pr-3 ">
+                    <div>
+                        <!-- <input class=" search-input " type="text" placeholder="Search"  ><i class="bi bi-search searchicon"></i> -->
+                        <input class="search-input" type="text" placeholder="Search" [(ngModel)]="searchText" (ngModelChange)="filterGrid()">
+                        <i class="bi bi-search searchicon"></i>
+                    </div>
+                  
+                    <button class="addcustomer"  (click)="addCustomer()">
+                         <img src="assets/img/Group 605.png" alt="logo"/> 
+                        Add New Customer
+                    </button>                    
+                </div>
+    
+              <!-- <app-customer-list (triggerEditRow)="editCustomer($event)"></app-customer-list> -->
+              <app-customer-list [customerList]="customerList" (triggerEditRow)="editCustomer($event)"></app-customer-list>
+
+        </section>
+    
+        <section #newOrEditCustomerTmpl *ngIf="isNewCustomer || isEditCustomer">
+
+            <app-card-header [title]="'New Customer'"></app-card-header>
+           
+            <div class="">
+               
+                <div class="container m-2 ">
+                  
+
+                  <form class="row " [formGroup]="customerForm" (ngSubmit)="onSubmit()" >
+    
+                    <div class="row">
+                        <div class="col d-flex">
+                            <label for="custName" class="form-label ">Customer Name*</label>                          
+                          <div>
+                            <input type="text" id="custName" formControlName="custName" placeholder="Customer Name" class="input-class"/>
+                            <div  class="error" *ngIf="customerForm.get('custName')?.hasError('required') && customerForm.get('custName')?.touched">
+                                Please Enter The Customer Name
+                            </div>  
+                            <div class="error" *ngIf="customerForm.get('custName')?.hasError('pattern')">
+                                No special Characters Allowed 
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col d-flex">
+                            <label for="custCode" class="form-label">Customer Code*</label>      
+                           <div class="">
+                                <input  type="text" id="custCode" formControlName="custCode" placeholder="Customer Code" class="input-class"  />     
+                                <div  class="error" *ngIf="customerForm.get('custCode')?.hasError('required') && customerForm.get('custCode')?.touched">
+                                    Please Enter The Customer Code
+                                </div>  
+                                <div class="error" *ngIf="customerForm.get('custCode')?.hasError('pattern')">
+                                    No Special Characters Allowed
+                                </div>                               
+                            </div>
+                        </div>
+                    </div>
+    
+
+                    <div class="row">
+                        <div class="col d-flex">
+                            <label for="address" class="form-label ">Address*</label>                          
+                          <div>
+                            <input type="text" id="address" formControlName="address" placeholder="Address" class="input-class"/>
+                            <div  class="error" *ngIf="customerForm.get('address')?.hasError('required') && customerForm.get('custName')?.touched">
+                                Please Enter The Address
+                            </div>  
+                          </div>
+                        </div>
+
+                        <div class="col d-flex">
+                            <label for="city" class="form-label">City*</label>      
+                           <div class="">
+                                <input  type="text" id="city" formControlName="city" placeholder="City" class="input-class"  />     
+                                <div  class="error" *ngIf="customerForm.get('city')?.hasError('required') && customerForm.get('city')?.touched">
+                                    Please Enter The City
+                                </div>  
+                                <div class="error" *ngIf="customerForm.get('city')?.hasError('pattern')">
+                                    No Numaric And Special Characters Allowed 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col d-flex">
+                            <label for="state" class="form-label ">State*</label>                          
+                          <div>
+                            <input type="text" id="state" formControlName="state" placeholder="State" class="input-class"/>
+                            <div  class="error" *ngIf="customerForm.get('state')?.hasError('required') && customerForm.get('state')?.touched">
+                                Please Enter The State
+                            </div>  
+                            <div class="error" *ngIf="customerForm.get('state')?.hasError('pattern')">
+                                No Special Characters Allowed 
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col d-flex">
+                            <label for="zipCode" class="form-label">Zip Code*</label>      
+                           <div class="">
+                                <input  type="number" id="zipCode" formControlName="zipCode" placeholder="zipCode" class="input-class"  />     
+                                <div  class="error" *ngIf="customerForm.get('zipCode')?.hasError('required') && customerForm.get('zipCode')?.touched">
+                                    Please Enter The Zip Code 
+                                </div>     
+                                <div class="error" *ngIf="customerForm.get('zipCode')?.hasError('pattern')">
+                                     Zip Code Must Be A 5-Digit Number
+                               </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col d-flex">
+                            <label for="emailId" class="form-label ">Email Id*</label>  
+                            <div>
+                                <input  type="text" id="emailId" formControlName="emailId" placeholder="Email Id" class="input-class"/>  
+                                <div  class="error" *ngIf="customerForm.get('emailId')?.hasError('required') && customerForm.get('emailId')?.touched">
+                                    Please Enter The Email Id
+                                </div>         
+                                <div  class="error" *ngIf="customerForm.get('emailId')?.hasError('email')">
+                                    Please Enter The Valid Email Id
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col d-flex">
+                            <label for="phoneNumber" class="form-label ">Phone Number*</label>  
+                           <div>
+                            <input  type="text" id="phoneNumber" formControlName="phoneNumber" placeholder="+1 00000 00000" class="input-class"/>   
+                            <div  class="error" *ngIf="customerForm.get('phoneNumber')?.hasError('required') && customerForm.get('phoneNumber')?.touched">
+                                Please Enter The Phone Number 
+                            </div> 
+                                
+                            <div class="error"  *ngIf="customerForm.get('phoneNumber')?.hasError('pattern')">
+                                Please Enter A Valid 10-Digit Phone Number
+                            </div>
+                           </div>  
+                                     
+                        </div>
+                        
+                    </div>
+    
+                    <div class="row">
+                        
+                        
+                        <div class="col d-flex">
+                             <label for="startDate" class="form-label">Effective From*</label>  
+                            <div>
+                                <input    type="date"  id="startDate" formControlName="startDate"  class="input-class" style="width:235px;"  />  
+                                <div  class="error" *ngIf="customerForm.get('startDate')?.hasError('required') && customerForm.get('startDate')?.touched">
+                                   Please Enter The Valid Date</div> 
+                            </div>
+                                               
+                        </div>
+                       
+                        <div class="col d-flex">
+                            <label for="endDate" class="form-label ">Effective Thru</label> 
+                            <div>
+                              <input type="date" id="endDate" formControlName="endDate" class="input-class" style="width:235px;" />   
+                              <div class="error" *ngIf="customerForm.get('endDate')?.hasError('dateInvalid')">
+                                End Date Must Be After Start Date
+                              </div>
+                            </div>              
+                          </div>
+                          
+                        <!-- <div class="col"></div> -->
+                    </div>
+    
+                    <div class="row">
+                        <div class="col d-flex">
+                            <label for="taxId" class="form-label ">Feed Tax Id#*</label>   
+                            <div>
+                                <input customerForm id="taxId" formControlName="taxId" placeholder="12-3456789" class="input-class" />      
+                                <div  class="error" *ngIf="customerForm.get('taxId')?.hasError('required') && customerForm.get('taxId')?.touched">
+                                    Please Enter The Feed Tax Id
+                                </div> 
+                                <div class="error" *ngIf="customerForm.get('taxId')?.hasError('pattern') && customerForm.get('taxId')?.touched">
+                                    Please Enter Valid Feed Tax Id (Example:12-1234567)
+                                </div>
+                            </div>             
+                        </div>
+
+                        <div class="col d-flex">
+                            <label for="logoUrlPath" class="form-label ">Brand Upload</label>  
+                            <div>
+                                <!-- <input type="file" id="logoUrlPath"  class="form-control" formControlName="logoUrlPath" style="width: 240px; margin-left: 90px; font-size: 14px; padding: 9px 16px;" aria-describedby="inputGroupFileAddon04" aria-label="Upload"> -->
+                                <input type="file" id="logoUrlPath" class="form-control" (change)="onFileSelect($event)" style="width: 240px; margin-left: 90px; font-size: 14px; padding: 9px 16px;" aria-describedby="inputGroupFileAddon04" aria-label="Upload" >
+                            </div>
+                        </div>
+                    </div> 
+
+                    <div class="row">
+                        <div class="theme">Theme Selection</div>
+                        <div class="col ">
+                            <label for="fontColor" class="form-label ">Font Color</label>   
+                            <input type='color' id="fontColor" formControlName="fontColor" class="font-input" /> 
+                            <div  class="errorFont" *ngIf="customerForm.get('fontColor')?.hasError('required') && customerForm.get('fontColor')?.touched">
+                                Please Select The Font Color
+                            </div>  
+                                             
+                        </div>                 
+                    </div>
+                    <div class="row">
+                       
+                        <div class="col ">
+                            <label for="primaryColor" class="form-label ">Primary Color</label>   
+                            <input  type='color' id="primaryColor" formControlName="primaryColor" class="font-input" /> 
+                            <div  class="errorFont" *ngIf="customerForm.get('primaryColor')?.hasError('required') && customerForm.get('primaryColor')?.touched">
+                                Please Select The Primary Color
+                            </div>                   
+                        </div>                 
+                    </div> 
+                    <div class="row">                       
+                        <div class="col ">
+                            <label for="secondaryColor" class="form-label ">Secondary Color</label>   
+                            <input type='color' id="secondaryColor" formControlName="secondaryColor" class="font-input" /> 
+                            <div  class="errorFont" *ngIf="customerForm.get('secondaryColor')?.hasError('required') && customerForm.get('secondaryColor')?.touched">
+                                Please Select The Secondary Color
+                            </div>                      
+                        </div>                 
+                    </div>
+                         
+                    <div class="row">
+                        <div class="col d-flex">
+                          <label for="status" class="form-label">Status</label> 
+                          <div style="margin-left: 90px;">
+                            <label >
+                              <input type="radio" formControlName="status" value="Active"> Active
+                            </label>
+                            <label class="ms-2">
+                              <input type="radio" formControlName="status" value="Inactive"> Inactive
+                            </label>
+                          </div>
+                         
+                        </div>   
+                      </div> 
+               
+                    <div class="d-flex justify-content-center">      
+                        <div class="col"></div> 
+                                      
+                        <div class="col">
+                            <button (click)="onCancel()" class="me-2 submit-button">
+                            Cancel
+                            </button>
+                            <button  class="cancel-button"   color="accent" type="submit">Save</button>
+                        </div> 
+                        <div class="col"></div>                          
+                    </div>
+                  </form>
+                </div>
+            </div>            
+        </section>
+    </div>
+</div>

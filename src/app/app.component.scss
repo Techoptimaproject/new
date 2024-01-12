@@ -1,0 +1,272 @@
+@import '../assets/variables.scss';
+
+
+
+.container{
+  // width: auto;
+  // height: 1113px;
+  // background: rgba(203, 215, 246, 0.10);
+  // background: rgba(203, 215, 246, 0.10);
+
+  // border:solid red 1px;
+
+}
+
+
+  .header{
+    // width: 1020px;
+    //  height: 85px;  
+    // border:solid yellowgreen 10px;
+    margin-left:278px;
+    display: flex;
+    background: #F5F7FD;
+    overflow: visible !important;
+  
+  }
+
+  .line{
+    border: 1px solid rgb(114, 111, 111);
+    width:214px;
+    height:1px;
+    margin-left: 13px;
+  }
+  
+  .iconslist{
+    // background-color: #EE3F5F;
+    width:auto;
+    display: flex;
+    margin-left: 474px;
+
+
+  }   
+.user-name{
+
+  width: 220px;
+  height: 47px;
+  color: #FFF;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 14px; 
+  font-weight: 500;
+  border-radius: 4px;
+background-color: #303778 !important;
+margin-right: 26px;
+margin-top: 11px;
+}
+button{
+  color:white
+}
+
+
+
+  
+
+  
+  .footer{
+    // width: auto;
+    height: 47px;
+    flex-shrink: 0;
+    clear:both;
+    // border:solid red 1px;
+    text-align: center;
+    // margin-left: 40px;
+    // justify-content: center;
+    // align-items: center;
+  
+  }
+
+
+.containerlogo{    
+  // height:39px !important;
+  // width:241px !important;
+    // margin-left:23px !important;
+    // margin-top:26px !important;
+    // border: 1px solid red;
+    position: absolute;
+  }
+
+  .containericon{
+    margin-top: 26px;
+    margin-left: 193px;
+    margin-bottom: 28px;
+    // border: 1px solid red;
+    width: 24px;
+    height: 24px;  
+  }
+
+
+mat-sidenav {
+  
+  color:#303778 !important; 
+  background-color: #ffffff;
+
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  text-align: start;
+  
+
+}
+
+
+
+.box{
+  width: 204px;
+  height: 125px;
+  margin-left: 10px;
+  border-radius: 8px;
+background: #303778;
+  border:gray 2px solid;
+}
+
+
+
+.menu-button {
+  cursor: pointer;
+  width: 235px;
+  height: 47px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 14px !important;
+  color: #303778 ;
+  // padding: 16px;
+ 
+
+  mat-icon {
+    margin-right: 12px;
+    // border:1px solid red;
+    width:24px;
+     height:24px;
+  }
+ 
+  .mattitle{
+    white-space: nowrap !important;
+    height:21px;
+    width: 51px;
+    font-family: Poppins !important;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 31px;
+
+
+    color: #303778
+
+
+   
+  }
+ 
+
+ 
+
+  .mattitle-child{
+    margin-left: 36px;   
+    color: #303778;
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    
+   
+  }
+ 
+}
+
+.submenu{cursor: pointer}
+
+
+.sub-routes {
+  margin-left: 20px;
+  
+}
+
+// .sub-route-button {
+//   display: block;
+//   width: auto;
+//   text-align: left;
+//   padding: 8px 16px;
+//   font-size: 14px;
+// }
+
+
+
+.mat-drawer-content {
+  overflow: hidden !important;
+}
+
+
+.active-sub-link {
+  color:#EE3F5F !important;
+}
+
+::ng-deep .menu-button.active{
+  background-color: #CBD7F6 !important;
+  border-radius: 1px;
+  // opacity: 0.3;
+  color:#EE3F5F !important;
+  font-weight: bold;
+ 
+}
+
+mat-icon{
+overflow: visible !important;
+}
+
+.menu-sub-button{
+  font-family: Poppins;
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+margin-top: 12px;
+margin-left:36px;
+color: #303778;
+
+}
+ 
+.menu-sub-button.active {
+  // color: #f77e37 !important;
+  color:#EE3F5F !important;
+  // color: #303778;
+
+font-family: Poppins;
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+margin: 2px;
+margin-left:36px;
+margin-top: 12px;
+}
+
+
+
+
+
+.navicons{
+  width: auto;
+  margin-right: 26px;
+  margin-top:22px;
+  // border: #4F78E0 solid 3px;
+}
+
+
+.questionmark{
+  background-color: #303778;
+  color:white;
+  border-radius: 31px;
+  width: 50px;
+  height: 60px;
+  border:6px solid white;
+  align-content: center;
+  margin-left: 70px;
+  margin-top: -25px;
+}
+
+.material-icons{
+  margin-left: px;
+}
+.dropdownIcon{
+  margin-top: 10px;
+  margin-left: 85px;
+}

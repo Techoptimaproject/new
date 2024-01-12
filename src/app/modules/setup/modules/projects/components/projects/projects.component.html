@@ -1,0 +1,162 @@
+<div class="m-4">
+  <div class="card rounded-0  border-info">
+    <section #ProjectList>
+      <!-- <app-card-header [title]="'Setup/Customers'"></app-card-header> -->
+      <ol class="breadcrumb ms-4 mt-2 ">
+        <img src="assets/img/Account.png" alt="logo" />
+        <li class="breadcrumb-item setup-hearder ms-2 "><a href="#">Setup</a></li>
+        <li class="breadcrumb-item active align-header" aria-current="page">Project Setup</li>
+      </ol>
+      <div class="d-flex justify-content-between ps-4 pb-3 pr-3 ">
+        <div>
+          <!-- <input class=" search-input " type="text" placeholder="Search"  ><i class="bi bi-search searchicon"></i> -->
+          <input class="search-input" type="text" placeholder="Search" [(ngModel)]="searchText"
+            (ngModelChange)="filterGrid()"><i class="bi bi-search searchicon"></i>
+
+        </div>
+
+        <button class="addProject" (click)="addProject()">
+          <img src="assets/img/Group 605.png" alt="logo" />
+          Add New Project
+        </button>
+      </div>
+
+      <app-projects-list [projectList]="projectList" (triggerEditRow)="editProject($event)"></app-projects-list>
+
+    </section>
+
+    <section #newOrEditCustomerTmpl *ngIf="isNewProject || isEditProject">
+
+      <app-card-header [title]="'New Project'"></app-card-header>
+
+      <div class="">
+
+        <div class="container m-2 ">
+
+
+          <form class="row " [formGroup]="projectForm" (ngSubmit)="onSubmit()">
+
+            <div class="row">
+              <div class="col d-flex">
+                <label for="projectName" class="form-label ">Project Name*</label>
+                <div>
+                  <input type="text" id="projectName" formControlName="projectName" placeholder="Textfield"
+                    class="input-class" />
+                  <div class="error"
+                    *ngIf="projectForm.get('projectName')?.hasError('required') && projectForm.get('projectName')?.touched">
+                    Please Enter The Project Name
+                  </div>
+                  <div class="error" *ngIf="projectForm.get('projectName')?.hasError('pattern')">
+                    No Special Characters Allowed
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="col d-flex">
+                <label for="projectCode" class="form-label">Project Code*</label>
+                <div class="">
+                  <input type="text" id="projectCode" formControlName="projectCode" placeholder="Textfield"
+                    class="input-class" />
+                  <div class="error"
+                    *ngIf="projectForm.get('projectCode')?.hasError('required') && projectForm.get('projectCode')?.touched">
+                    please Enter the Project Code
+                  </div>
+                  <div class="error" *ngIf="projectForm.get('projectCode')?.hasError('pattern')">
+                    No Special Characters Allowed
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="row">
+              <div class="col d-flex">
+                <label for="custName" class="form-label ">Customer Name*</label>
+                <div>
+                  <select aria-placeholder="name" formControlName="custId" id="dropdown" class="input-class">
+                    <option [value]="null" disabled selected>Select Dropdown</option>   
+                    <option *ngFor="let custName of custNamedropdownItems" [value]="custName.custId">{{
+                      custName.custName }}</option>
+                  </select>
+                  <div class="error" custName
+                    *ngIf="projectForm.get('custId')?.hasError('required') && projectForm.get('custId')?.touched">
+                    Please Select Dropdown
+                  </div>
+                </div>
+              </div>
+
+              <div class="col d-flex">
+                <label for="formName" class="form-label">Forms*</label>
+                <div class="">
+                  <select id="formName" class="form-control" formControlName="formId" multiple>
+                    
+                    <option *ngFor="let formName of formNameMultiDropdown" [value]="formName.formId">
+                      <input type="checkbox" [value]="formName.formId" class="ckkBox val" />
+                        <span>{{ formName.formName }}</span>
+                    </option>
+                  </select>
+                  <!-- <div *ngFor="let formName of formNameMultiDropdown">
+                    <input type="checkbox" [value]="formName.formId" [(ngModel)]="formName.selected" /> {{ formName.formName }}
+                  </div> -->
+                </div>            
+              </div>
+ 
+            </div>
+
+            <div class="row">
+              <div class="col d-flex">
+                <label for="startDate" class="form-label">Effective From*</label>
+                <div>
+                  <input type="date" id="startDate" formControlName="startDate" class="input-class" style="width:250px;" />
+                  <div class="error"
+                    *ngIf="projectForm.get('startDate')?.hasError('required') && projectForm.get('startDate')?.touched">
+                    Please Enter the valid Date</div>
+                </div>
+
+              </div>
+
+              <div class="col d-flex">
+                <label for="endDate" class="form-label ">Effective Thru</label>
+                <div>
+                  <input type="date" id="endDate" formControlName="endDate" class="input-class" style="width:250px;" />
+                  <div class="error" *ngIf="projectForm.get('endDate')?.hasError('dateInvalid')">
+                    End Date Must Be After Start Date
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="row">
+              <div class="col d-flex">
+                <label for="status" class="form-label">Status</label>
+                <div style="margin-left: 90px;">
+                  <label>
+                    <input type="radio" formControlName="status" value="Active"> Active
+                  </label>
+                  <label class="ms-2">
+                    <input type="radio" formControlName="status" value="Inactive"> Inactive
+                  </label>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="d-flex justify-content-center">
+              <div class="col"></div>
+
+              <div class="col">
+                <button (click)="onCancel()" class="me-2 submit-button">
+                  Cancel
+                </button>
+                <button class="cancel-button" color="accent" type="submit">Save</button>
+              </div>
+              <div class="col"></div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
